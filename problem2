@@ -1,0 +1,77 @@
+#!/bin/bash
+
+## PROBLEM 2: Create an array of size 20. Use random to generate the element. Sort the 
+## array from highest to lowest (descending order). Do not reverse question 1. Use forloop
+
+
+
+
+
+# Step 1: Use the random function
+RANDOM=$$
+
+#Step 2: Create an array
+declare -a arr
+for (( i=0; i<20; i++ ))
+do
+	arr[i]=$(( $RANDOM % 101 ))
+done
+
+# Print the unsorted array to make sure it is filled with random numbers
+echo "The unsorted Array: "
+echo "${arr[*]}"
+
+# Sort the array
+for i in $(seq 0 19)
+do
+for ((j=((i+1)); j<=19; j++))
+do
+	if [ ${arr[i]} -lt ${arr[j]} ]
+	then 
+		temp=${arr[i]}
+		arr[i]=${arr[j]}
+		arr[j]=$temp
+	fi
+done
+done
+
+
+
+# Print the sorted array
+echo " "
+echo " "
+echo " "
+
+
+echo "The sorted array: " 
+echo "${arr[*]}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

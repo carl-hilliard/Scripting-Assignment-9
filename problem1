@@ -1,0 +1,105 @@
+#!/bin/bash
+
+
+## Problem 1: Create an array of size 20. Use random to generate the element. Sort them from 
+## Lowest number to highest. Use a for loop
+
+
+
+
+# Step 1 of Problem 1: Use the random function
+RANDOM=$$
+rando=$(($RANDOM%101))
+
+
+# Step 2 of Problem 1: Create an array
+# There are 3 methods to create an array: Indirect, explicit, and compound
+# Use indirect declaration to create the array inside of a for loop, and fill it randomly
+declare -a array
+for (( i=0; i<20; i++ ))
+do
+	array[i]=$(( $RANDOM % 101 ))
+done
+
+# print the array to make sure that it is filled with random numbers
+echo "The unsorted Array: "
+echo "${array[*]}"
+
+# Now that the array has been created, and filled with random numbers, it must be sorted.
+# Sort from least at array[0] to greatest at array[20]
+# Perform bubble sort on the array, using a for loop
+#for (( i=0; i<20; i++ ))
+#do
+	# The nested loop goes here
+#	for (( j=0; j<20-i-1; j++ ))
+#	do
+#		if [ ${array[j]} -gt ${array[$((j+1))]} ]
+#		then
+#			temp=${array[j]}
+#			arr[$j]=${arr[$((j+1))]}
+#			arr[$((j+1))]=$temp
+#		fi
+#	done
+#done
+
+# Now print the array in sorted order
+#echo " " 
+#echo " "
+echo " " 
+#echo "The sorted Array:"
+#echo "${array[*]}"
+
+# Try just moving some values around within the array
+#temp=${array[0]}
+#arr[0]=${arr[$((1))]}
+#arr[$((1))]=$temp
+
+
+for i in $(seq 0 19)
+do
+for ((j=((i+1)); j<=19; j++))
+do
+	if [ ${array[i]} -gt ${array[j]} ]
+	then 
+		temp=${array[i]}
+		array[i]=${array[j]}
+		array[j]=$temp
+	fi
+done
+done
+
+
+
+
+
+echo " " 
+echo " "
+echo "${array[*]}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
